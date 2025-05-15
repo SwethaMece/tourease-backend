@@ -10,8 +10,8 @@ connectDB();
 
 const app = express();
 
-// Use CORS - for now allow all origins
-const allowedOrigins = ['*'];
+// Use CORS - only allow your Netlify frontend URL
+const allowedOrigins = ['https://tourease2025.netlify.app'];
 app.use(cors({
   origin: allowedOrigins,
 }));
