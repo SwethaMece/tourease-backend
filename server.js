@@ -10,14 +10,19 @@ connectDB();
 
 const app = express();
 
-// Use CORS - Allow your frontend URL only, change it before deployment
-const allowedOrigins = ['https://your-frontend-url.com']; // replace this with your real frontend URL
+// Use CORS - for now allow all origins
+const allowedOrigins = ['*'];
 app.use(cors({
   origin: allowedOrigins,
 }));
 
 // Middleware to parse JSON
 app.use(express.json());
+
+// ✅ Add this root route
+app.get('/', (req, res) => {
+  res.send('TourEase Backend is running ✅');
+});
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
